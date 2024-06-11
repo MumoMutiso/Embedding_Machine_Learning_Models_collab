@@ -139,11 +139,19 @@ if __name__ == '__main__':
     final_prediction = st.session_state['prediction']
     final_probability = st.session_state['probability']
  
-    if not final_prediction:
+    if final_prediction is None:
         st.write('Predictions show here!')
         st.divider()
     else:
-        st.markdown(f'## Churn: {final_prediction}')
-        st.markdown(f'### Probability: {final_probability:.2f}%')
+        if final_prediction.lower() == 'yes':
+            # st.markdown(f'## Churn: {final_prediction}')
+            st.markdown(f'### Customer will leave 😞.')
+            st.markdown(f'## Probability: {final_probability:.2f}%')
+            
+        else:
+            # st.markdown(f'## Churn: {final_prediction}')
+            st.markdown(f'### Customer will stay 😊.')
+            st.markdown(f'## Probability: {final_probability:.2f}%')
+            
  
     # st.write(st.session_state)
