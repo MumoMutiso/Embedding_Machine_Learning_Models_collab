@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
+import datetime
  
 st.set_page_config(
     page_title='Predict Customer Churn!',
@@ -73,6 +75,7 @@ def make_prediction(pipeline, encoder):
     # Make a DataFrame
     df = pd.DataFrame(data)
  
+
     # st.write(pipeline)
     # st.write(st.session_state)
     # # info = df.info()
@@ -87,6 +90,13 @@ def make_prediction(pipeline, encoder):
     st.session_state['prediction'] = prediction
     st.session_state['probability'] = probability
    
+    df['prediction'] = prediction
+    df['probability'] = probability
+    df['time_of_prediction'] = datetime.date.today()
+    df['model_used'] = st.session_state['selected_model']
+
+    df.to_csv("Data/history.csv", mode='a', header=not os.path.exists("Data/history.csv"))
+
     return prediction, probability
  
 if 'prediction' not in st.session_state:
