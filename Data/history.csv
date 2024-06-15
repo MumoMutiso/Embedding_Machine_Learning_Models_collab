@@ -1,0 +1,2 @@
+,gender,seniorcitizen,partner,dependents,tenure,paperlessbilling,paymentmethod,monthlycharges,totalcharges,phoneservice,multiplelines,internetservice,onlinesecurity,onlinebackup,deviceprotection,techsupport,streamingtv,streamingmovies,contract,prediction,probability,time_of_prediction,model_used
+0,Female,1,Yes,Yes,13,Yes,Electronic check,6.0,4.0,Yes,Yes,DSL,Yes,Yes,Yes,Yes,Yes,Yes,Month-to-month,Yes,65.6604748241555,2024-06-15,Logistic Regression
